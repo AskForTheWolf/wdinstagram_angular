@@ -58,6 +58,7 @@ function PostIndexControllerFunction(PostFactory){
 function PostShowControllerFunction (PostFactory, $stateParams) {
   console.log($stateParams); //for debug purposes and whatnot
 this.insta = posts[$stateParams.id];
+  
 }
 
 function PostNewControllerFunction (PostFactory) {
@@ -71,6 +72,9 @@ function PostEditControllerFunction(PostFactory, $stateParams){
   this.insta = PostFactory.get({id: $stateParams.id});
   this.update = function(){
     this.insta.$update({id: $stateParams.id})
+  }
+  this.destroy = function(){
+    this.insta.$delete({id: $stateParams.id});
   }
 }
 
