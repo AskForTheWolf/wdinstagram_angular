@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-ng-app='wdinstagram'>
   <head>
-    <title>Angular</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-resource.min.js"></script>
-    <base href="/" />
+    <title>wdinstagram Angular</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-resource.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+    <!-- <base href="/" /> -->
     <script src="js/app.js"></script>
   </head>
   <body>
-  </body>
+<h2><a data-ui-sref="postIndex">WDInstagram</a></h2>
+
+    <main data-ui-view></main>
+    <div data-ng-repeat="insta in vm.posts | orderBy:'-created_at'">
+  <p><a data-ui-sref="postShow({id: insta.id})">{{insta.author}} - {{insta.body}} - {{insta.photo_url}}</a></p>
+</div>
+</body>
 </html>
